@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Walk around",
+        "description": "Go walk around the block for 5 minutes"
+    },
+    {
+        "id": 2,
+        "name": "Check the plants",
+        "description": "Go check the plants, remove dead leaves, water them (if you have some)"
+    },
+    {
+        "id": 3,
+        "name": "Make yourself a tea",
+        "description": "Go make yourself a tea of any drink you like"
+    }
+]
