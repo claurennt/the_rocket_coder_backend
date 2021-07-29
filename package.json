@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./bin/www",
     "devWin": "set DEBUG=myapp:* & nodemon start",
-    "devMac": "DEBUG=myapp:* npm start"
+    "devMac": "DEBUG=myapp:* nodemon start"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,6 +13,7 @@
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
+    "googlethis": "^1.1.2-readme",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",

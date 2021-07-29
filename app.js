@@ -6,7 +6,8 @@ const logger = require("morgan");
 const cors = require("cors");
 
 const indexRouter = require("./routes/index");
-const activitiesRouter = require("./routes/activitiesRoute");
+const activitiesRouter = require("./routes/activitiesRouter");
+const googleRouter = require("./routes/googleRouter");
 
 const app = express();
 app.use(cors());
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/activities", activitiesRouter);
+app.use("/googlethis", googleRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
