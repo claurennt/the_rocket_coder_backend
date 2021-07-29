@@ -10,7 +10,11 @@ const get_one_activity = (req, res) => {
   const { id } = req.params;
 
   const activity = activities.find((activity) => activity.id === Number(id));
+  if (!activity) {
+    return res
+      .status(404)
+      .send(`Please provide a valid id between 1 and ${activities.length}`);
+  }
   res.json(activity);
 };
-
 module.exports = { get_all_activities, get_one_activity };
