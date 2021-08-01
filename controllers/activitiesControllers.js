@@ -4,26 +4,28 @@ const Activities = require("../DB/models/ActivitiesModel");
 
 //POST -- create new activity
 const create_new_activity = async (req, res) => {
-  const { quote, author, activity } = req.body;
+  const { id, author, quote, activity } = req.body;
 
   try {
     const newActivity = await Activities.create({
+      id,
       quote,
       author,
       activity,
     });
 
-    res.json(activity_object);
+    res.json(newActivity);
   } catch (err) {
     res.status(500).send(err);
   }
 };
 
 //GET -- find all activities
-const get_all_activities = (req, res) => {
+const get_all_activities = async (req, res) => {
   try {
-    const activities = Activities.find();
-    res.json(activities);
+    const allActivities = await Activities.find({});
+    console.log(allActivities);
+    res.json(allActivities);
   } catch (err) {
     res.status(500).send(err);
   }
@@ -50,12 +52,12 @@ const get_one_activity_by_id = async (req, res) => {
 //GET -- find all activities that match a specific param value
 const get_activities_by_param_value_match = async (req, res) => {
   const { word } = req.params;
-
+  console.log(req.params);
   const matchWord = new RegExp(word, "i"); //i = case insensitive
 
   try {
     // find activity by param value match
-    const activitiesContainingWord = activities.find({
+    const activitiesContainingWord = await Activities.find({
       activity: { $regex: matchWord },
     });
 
@@ -77,7 +79,7 @@ const update_entire_activity = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const updatedActivity = Activities.findOneAndUpdate(
+    const updatedActivity = await Activities.findOneAndUpdate(
       id,
       { ...req.body },
       { new: true } //option for displaying new activity as response

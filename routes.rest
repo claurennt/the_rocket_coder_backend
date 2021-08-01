@@ -1,9 +1,16 @@
 ###
-POST http://localhost:3005/activities HTTP/1.1
+GET http://localhost:5000/activities HTTP/1.1
+
+###
+GET http://localhost:5000/activities/match/water HTTP/1.1
+
+###
+POST http://localhost:5000/activities HTTP/1.1
 Content-Type: application/json
 
 {
-    "author": "undefined is not a function react",
-    "quote": "ciao",
-    "activity": "ciao1"
+    "id": 1,
+    "quote": "Drinking water is essential to a healthy lifestyle.",
+    "author": "Stephen Curry",
+    "activity": "water"
 }
