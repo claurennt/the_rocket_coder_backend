@@ -95,13 +95,23 @@ const update_entire_activity = async (req, res) => {
 //PATCH update one field in activity(i.e. PATCH op)
 const update_one_field_in_activity = async (req, res) => {
   const { id } = req.params;
-
-  const { field, value } = req.body;
+  console.log(id);
+  const { key, value } = req.body;
+  console.log(req.body);
   try {
-    const { n } = await Activities.updateOne(id, {
-      [field]: value,
-    });
-    if (!n) res.status(404).send("Activity not found");
+    console.log(
+      await Activities.updateOne(
+        { id: id },
+        {
+          [key]: value,
+        }
+      )
+    );
+    console.log(n);
+    if (!n) {
+      return res.status(404).send("Activity not found");
+    }
+
     res.send("Activity updated successfully.");
   } catch (err) {
     res.status(500).send(err);
