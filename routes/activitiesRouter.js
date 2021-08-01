@@ -27,6 +27,6 @@ activitiesRouter
   .patch(update_one_field_in_activity)
   .delete(delete_one_activity);
 
-activitiesRouter.route("/:word").get(get_activities_by_param_value_match);
+activitiesRouter.route("/match/:word").get(get_activities_by_param_value_match);
 
 module.exports = activitiesRouter;
