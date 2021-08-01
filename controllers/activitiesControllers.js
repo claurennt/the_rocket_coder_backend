@@ -1,6 +1,6 @@
 const express = require("express");
 
-const Activities = require("../DB/models/ActivitiesModel");
+const Activities = require("../DB/Models/ActivitiesModel");
 
 //POST -- create new activity
 const create_new_activity = async (req, res) => {
