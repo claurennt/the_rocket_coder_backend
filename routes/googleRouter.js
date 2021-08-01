@@ -5,9 +5,9 @@ const googleRouter = express.Router();
 
 googleRouter.post("/", (req, res) => {
   const { transcript } = req.body;
-
+  console.log(req.body);
   if (!transcript) {
-    return res.status(400).send("Audio not detected");
+    return res.status(400).send("Nothing to process");
   }
 
   async function start() {
@@ -23,6 +23,7 @@ googleRouter.post("/", (req, res) => {
     if (!response) {
       return res.send(404).send("I could not find anything to help you");
     }
+    console.log(response);
     res.json(response);
   }
 
