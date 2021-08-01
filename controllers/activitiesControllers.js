@@ -20,7 +20,7 @@ const create_new_activity = async (req, res) => {
   }
 };
 
-//GET -- find all activities
+//GET -- find all activities in the db
 const get_all_activities = async (req, res) => {
   try {
     const allActivities = await Activities.find({});
